@@ -79,4 +79,4 @@ java-project$ tree
 <br>
 
 #### **그레이들 빌드 도구가 생성한 프로젝트의 구조와 용도**<br>
-![gradle](https://github.com/leeseoeun/java-project/raw/main/study-project/app-01-a/app-01-a.jpeg)
+![gradle](https://github.com/leeseoeun/seoeun-study/blob/main/java-project/app-01-a/app-01-a.jpeg?raw=true)
