@@ -7,7 +7,7 @@ JVM으로 클래스를 실행하면 그 클래스에 정의된 **main()** 메서
 
 ### **1. 훈련 목표**<br>
 1. 클래스 실행과 main() 메서드의 관계 이해<br>
-2. 조건 문, 반복 문, 블록, 배열 등의 활용 엽습<br>
+2. 조건 문, 반복 문, 블록, 배열 등의 활용 연습<br>
 
 <br>
 
@@ -154,7 +154,7 @@ public class App {
 
       } else if (input.equals("/task/list")) {
         System.out.println("[작업 목록]");
-        String statusLabel = null; //쌤한테 질문!
+        String statusLabel = null;
         for (int i=0; i<tSize; i++) {
           switch (tStatus[i]) {
             case 1:
