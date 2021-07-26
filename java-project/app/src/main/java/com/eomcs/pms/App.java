@@ -38,7 +38,7 @@ public class App {
 
   public static void main(String[] args) {
     while (true) {
-      String input = promptString("명령> ");    //리턴을 input에 담기
+      String input = promptString("명령? ");
 
       if (input.equals("exit") || input.equals("quit")) {
         System.out.println("안녕!");
@@ -103,7 +103,6 @@ public class App {
     System.out.println("[프로젝트 등록]");
     pNo[pSize] = promptInt("번호? ");
     pTitle[pSize] = promptString("프로젝트명? ");
-    pContent[pSize] = promptString("내용? ");
     pStartDate[pSize] = promptDate("시작일? ");
     pEndDate[pSize] = promptDate("종료일? ");
     pOwner[pSize] = promptString("만든이? ");
@@ -134,14 +133,14 @@ public class App {
     System.out.println("1: 진행중");
     System.out.println("2: 완료");
     tStatus[tSize] = promptInt("> ");
-    tOwner[tSize] = promptString("담당자? ");
+    tOwner[tSize] = promptString("만든이? ");
 
     tSize++;
   }
 
   static void listTasks() {
     System.out.println("[작업 목록]");
-    String statusLabel = null; //쌤한테 질문!
+    String statusLabel = null;
     for (int i=0; i<tSize; i++) {
       switch (tStatus[i]) {
         case 1:
@@ -175,6 +174,5 @@ public class App {
   static Date promptDate(String title) {
     return Date.valueOf(promptString(title));
   }
-
 
 }
