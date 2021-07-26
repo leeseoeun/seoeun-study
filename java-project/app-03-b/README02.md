@@ -1,4 +1,4 @@
-## **03-b. 메서드 사용 법: 메서드 활용**
+## **03-b. 메서드 사용 법: 메서드 활용**<br>
 ### **3. 실습**<br>
 7. 7단계: 사용자로부터 입력받는 코드를 prompt() 메서드로 분리<br>
 => prompt() 메서드를 정의하고 관련된 코드를 가지고 옴<br>
@@ -44,6 +44,8 @@ public class App {
         name[size] = input;
         prompt("이메일? ");
         email[size] = input;
+        prompt("암호? ");
+        password[isze] = input;
         prompt("사진? ");
         photo[size] = input;
         prompt("전화? ");
@@ -59,6 +61,8 @@ public class App {
         pNo[pSize] = Integer.parseInt(input);
         prompt("프로젝트명? ");
         pTitle[pSize] = input;
+        prompt("내용? ");
+        pContent[pSize] = input;
         prompt("시작일? ");
         pStartDate[pSize] = Date.valueOf(input);
         prompt("종료일? ");
@@ -85,7 +89,7 @@ public class App {
         System.out.println("2: 완료");
         prompt("> ");   //> 에 입력받으니까 상태? (x)
         tStatus[tSize] = Integer.parseInt(input);
-        prompt("만든이? ");
+        prompt("담당자? ");
         tOwner[tSize] = input;
 
         tSize++;
@@ -118,6 +122,7 @@ public class App {
         no[size] = Integer.parseInt(prompt("번호? "));
         name[size] = prompt("이름? ");
         email[size] = prompt("이메일? ");
+        password[size] = prompt("암호? ");
         photo[size] = prompt("사진? ");
         tel[size] = prompt("전화? ");
         registeredDate[size] = new Date(System.currentTimeMillis());
@@ -129,6 +134,7 @@ public class App {
         System.out.println("[프로젝트 등록]");
         pNo[pSize] = Integer.parseInt(prompt("번호? "));
         pTitle[pSize] = prompt("프로젝트명? ");
+        pContent[pSize] = prompt("내용? ");
         pStartDate[pSize] = Date.valueOf(prompt("시작일? "));
         pEndDate[pSize] = Date.valueOf(prompt("종료일? "));
         pOwner[pSize] = prompt("만든이? ");
@@ -147,7 +153,7 @@ public class App {
         System.out.println("1: 진행중");
         System.out.println("2: 완료");
         tStatus[tSize] = Integer.parseInt(prompt("> "));
-        tOwner[tSize] = prompt("만든이? ");
+        tOwner[tSize] = prompt("담당자? ");
 
         tSize++;
     }
@@ -178,6 +184,7 @@ public class App {
         no[size] = promptInt("번호? ");
         name[size] = promptString("이름? ");
         email[size] = promptString("이메일? ");
+        password[size] = promptString("암호? ");
         photo[size] = promptString("사진? ");
         tel[size] = promptString("전화? ");
         registeredDate[size] = new Date(System.currentTimeMillis());

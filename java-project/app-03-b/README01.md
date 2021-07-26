@@ -1,4 +1,4 @@
-## **03-b. 메서드 사용 법: 메서드 활용**
+## **03-b. 메서드 사용 법: 메서드 활용**<br>
 메서드: 코드를 기능 단위로 묶을 때 사용하는 문법<br>
 1. 클래스 메서드(스태틱 메서드): static으로 선언<br>
 2. 인스턴스 메서드(논스태틱 메서드)<br>
@@ -123,6 +123,8 @@ public class App {
     name[size] = sc.nextLine();
     System.out.print("이메일? ");
     email[size] = sc.nextLine();
+    System.out.print("암호? ");
+    password[size] = sc.nextLine();
     System.out.print("사진? ");
     photo[size] = sc.nextLine();
     System.out.print("전화? ");
@@ -150,6 +152,8 @@ public class App {
     pNo[pSize] = Integer.parseInt(sc.nextLine());
     System.out.print("프로젝트명? ");
     pTitle[pSize] = sc.nextLine();
+    System.out.print("내용? ");
+    pContent[pSize] = sc.nextLine();
     System.out.print("시작일? ");
     pStartDate[pSize] = Date.valueOf(sc.nextLine());
     System.out.print("종료일? ");
@@ -188,7 +192,7 @@ public class App {
     System.out.println("2: 완료");
     System.out.print("> ");
     tStatus[tSize] = Integer.parseInt(sc.nextLine());
-    System.out.print("만든이? ");
+    System.out.print("담당자? ");
     tOwner[tSize] = sc.nextLine();
 
     tSize++;

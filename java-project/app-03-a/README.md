@@ -86,6 +86,8 @@ public class App {
         name[size] = sc.nextLine();
         System.out.print("이메일? ");
         email[size] = sc.nextLine();
+        System.out.print("암호? ");
+        password[size] = sc.nextLine();
         System.out.print("사진? ");
         photo[size] = sc.nextLine();
         System.out.print("전화? ");
@@ -111,6 +113,8 @@ public class App {
         pNo[pSize] = Integer.parseInt(sc.nextLine());
         System.out.print("프로젝트명? ");
         pTitle[pSize] = sc.nextLine();
+        System.out.print("내용? ");
+        pContent[pSize] = sc.nextLine();
         System.out.print("시작일? ");
         pStartDate[pSize] = Date.valueOf(sc.nextLine());
         System.out.print("종료일? ");
@@ -147,7 +151,7 @@ public class App {
         System.out.println("2: 완료");
         System.out.print("> ");
         tStatus[tSize] = Integer.parseInt(sc.nextLine());
-        System.out.print("만든이? ");
+        System.out.print("담당자? ");
         tOwner[tSize] = sc.nextLine();
 
         tSize++;
