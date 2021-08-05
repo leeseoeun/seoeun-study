@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class MemberHandler {
 
-  static final int LENGTH = 5;
-  static Member[] members = new Member[LENGTH]; //스태틱 메서드에서 쓰니까 static
+  static final int MAX_LENGTH = 5;
+  static Member[] members = new Member[MAX_LENGTH]; //스태틱 메서드에서 쓰니까 static
   static int size = 0;
 
   static void add() {

@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class ProjectHandler {
 
-  static final int LENGTH = 5;
-  static Project[] projects = new Project[LENGTH];
+  static final int MAX_LENGTH = 5;
+  static Project[] projects = new Project[MAX_LENGTH];
   static int size = 0;
 
   static void add() {

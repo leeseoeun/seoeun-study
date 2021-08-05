@@ -2,8 +2,8 @@ package com.eomcs.pms;
 
 public class TaskHandler {
 
-  static final int LENGTH = 5;
-  static Task[] tasks = new Task[LENGTH];
+  static final int MAX_LENGTH = 5;
+  static Task[] tasks = new Task[MAX_LENGTH];
   static int size = 0;
 
   static void add() {
