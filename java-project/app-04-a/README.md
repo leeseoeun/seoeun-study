@@ -1,27 +1,21 @@
-## **04-a. 클래스 사용법: 메서드 분류**<br>
+### **04-a. 클래스 사용법: 메서드 분류**<br>
 클래스: 여러 개의 메서드를 한 단위로 묶을 때 사용<br>
 
-<br>
-
-### **1. 훈련 목표**<br>
+#### **1. 훈련 목표**<br>
 1. 클래스를 이용해서 메서드를 한 단위로 묶는 법을 배움<br>
 2. 리팩토링 기법 중에서 '클래스 추출(Extract Class)' 연습<br>
 
-<br>
-
-### **2. 훈련 내용**<br>
+#### **2. 훈련 내용**<br>
 1. 프롬프트 관련 메서드를 별도의 클래스로 분리<br>
 2. 회원 관련 메서드를 별도의 클래스로 분리<br>
 3. 프로젝트 관련 메서드를 별도의 클래스로 분리<br>
 4. 작업 관련 메서드를 별도의 클래스로 분리<br>
 
-<br>
+#### **3. 실습**<br>
+1. 사용자의 입력을 받는 프롬프트 메서드를 별도의 클래스로 분리<br>
 
-### **3. 실습**<br>
-1. 1단계: 사용자의 입력을 받는 프롬프트 메서드를 별도의 클래스로 분리<br>
 ```java
 public class Prompt {
-
   static Scanner sc = new Scanner(System.in);
 
   static String promptString(String title) {
@@ -36,18 +30,14 @@ public class Prompt {
   static Date promptDate(String title) {
     return Date.valueOf(promptString(title));
   }
-
-
 }
 ```
 
-<br>
+2. 회원 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 
-2. 2단계: 회원 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 ```java
 public class MemberHandler {
-
-  static final int LENGTH = 5;
+  static final int MAX_LENGTH = 5;
   static int[] no = new int[LENGTH];
   static String[] name = new String[LENGTH];
   static String[] email = new String[LENGTH];
@@ -81,18 +71,14 @@ public class MemberHandler {
           registeredDate[i]);
     }
   }
-
-
 }
 ```
 
-<br>
+3. 프로젝트 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 
-3. 3단계: 프로젝트 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 ```java
 public class ProjectHandler {
-
-  static final int LENGTH = 5;
+  static final int MAX_LENGTH = 5;
   static int[] no = new int[LENGTH];
   static String[] title = new String[LENGTH];
   static String[] content = new String[LENGTH];
@@ -126,17 +112,13 @@ public class ProjectHandler {
           owner[i]);
     }
   }
-
-
 }
 ```
 
-<br>
+4. 작업 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 
-4. 4단계: 작업 데이터 처리와 관련된 메서드를 별도의 클래스로 분리<br>
 ```java
 public class TaskHandler {
-
   static final int LENGTH = 5;
   static int[] no = new int[LENGTH];
   static String[] content = new String[LENGTH];
@@ -183,36 +165,23 @@ public class TaskHandler {
           owner[i]);
     }
   }
-
-
 }
 ```
 
-<br>
+5. 자원 해제는 그 자원을 소유한 클래스에게 맡김<br>
 
-5. 5단계: 자원 해제는 그 자원을 소유한 클래스에게 맡김<br>
 ```java
 public class Prompt {
-
   static void close() {
     sc.close();
   }
-
-
 }
 ```
 
-<br>
-
 ```java
 public class App {
-
   public static void main(String[] args) {
-
     Prompt.close();
-
   }
-
-
 }
 ```

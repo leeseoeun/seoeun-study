@@ -1,4 +1,4 @@
-## **04-b. 클래스 사용법: 새 데이터 타입 정의**<br>
+### **04-b. 클래스 사용법: 새 데이터 타입 정의**<br>
 클래스
 1. 메서드를 관리하기 쉽게 분류<br>
   -> 여러 개의 값을 묶어 한단위로 다룸
@@ -6,27 +6,23 @@
   -> 여러 개의 변수를 묶어 클래스로 정의<br>
   => 인스턴스: 클래스 정의에 따라 준비한 메모리<br>
 
-<br>
-
-### **1. 훈련 목표**<br>
+#### **1. 훈련 목표**<br>
 1. 클래스를 활용해서 사용자 정의 데이터 타입을 만드는 방법을 배움<br>
 2. 클래스를 가지고 메모리를 준비하는 방법을 배움<br>
 3. 클래스와 인스턴스의 관계 이해<br>
 4. 인스턴스와 레퍼런스의 관계 이해<br>
 5. 레퍼런스 배열을 다루는 방법을 배움<br>
 
-<br>
-
-### **2. 훈련 내용**<br>
+#### **2. 훈련 내용**<br>
 1. 클래스로 회원 정보를 저장할 때 새 메모리 타입을 정의하고 사용<br>
 2. 클래스로 프로젝트 정보를 저장할 때 새 메모리 타입을 정의하고 사용<br>
 3. 클래스로 작업 정보를 저장할 때 새 메모리 타입을 정의하고 사용<br>
 
-### **3. 실습**<br>
-1. 1단계: 회원 정보를 저장할 때 새 메모리 타입 정의<br>
+#### **3. 실습**<br>
+1. 회원 정보를 저장할 때 새 메모리 타입 정의<br>
+
 ```java
 public class Member {
-
   //스태틱 변수는 클래스가 로딩될 때 자동으로 딱 한번 생성되기 때문에
   //개별 데이터를 저장할 수 없으니까 static (x)
   //배열 (x)
@@ -37,13 +33,11 @@ public class Member {
   String photo;
   String tel;
   Date registeredDate;
-
-
 }
 ```
+
 ```java
 public class MemberHandler {
-
   static final int LENGTH = 5;
   static Member[] members = new Member[LENGTH]; //스태틱 메서드에서 쓰니까 static
   static int size = 0;
@@ -74,17 +68,13 @@ public class MemberHandler {
           members[i].registeredDate);
     }
   }
-
-
 }
 ```
 
-<br>
+2. 프로젝트 정보를 저장할 때 새 메모리 타입을 정의<br>
 
-2. 2단계: 프로젝트 정보를 저장할 때 새 메모리 타입을 정의<br>
 ```java
 public class Project {
-
   int no;
   String title;
   String content;
@@ -92,13 +82,11 @@ public class Project {
   Date endDate;
   String owner;
   String members;
-
-
 }
 ```
+
 ```java
 public class ProjectHandler {
-
   static final int LENGTH = 5;
   static Project[] projects = new Project[LENGTH];
   static int size = 0;
@@ -129,29 +117,23 @@ public class ProjectHandler {
           projects[i].owner);
     }
   }
-
-
 }
 ```
 
-<br>
+3. 작업 정보를 저장할 때 새 메모리 타입 정의<br>
 
-3. 3단계: 작업 정보를 저장할 때 새 메모리 타입 정의<br>
 ```java
 public class Task {
-
   int no;
   String content;
   Date deadline;
   int status;
   String owner;
-
-
 }
 ```
+
 ```java
 public class TaskHandler {
-
   static final int LENGTH = 5;
   static Task[] tasks = new Task[LENGTH];
   static int size = 0;
@@ -196,7 +178,5 @@ public class TaskHandler {
           tasks[i].owner);
     }
   }
-
-
 }
 ```

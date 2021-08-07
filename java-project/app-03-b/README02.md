@@ -1,12 +1,11 @@
-## **03-b. 메서드 사용법: 메서드 활용**<br>
-### **3. 실습**<br>
-7. 7단계: 사용자로부터 입력받는 코드를 prompt() 메서드로 분리<br>
+### **03-b. 메서드 사용법: 메서드 활용**<br>
+#### **3. 실습**<br>
+7. 사용자로부터 입력받는 코드를 prompt() 메서드로 분리<br>
 => prompt() 메서드를 정의하고 관련된 코드를 가지고 옴<br>
+
 ```java
 public class App {
-
     static String input;
-    
     public static void main(String[] args) {
         while (true) {
             prompt();
@@ -17,20 +16,17 @@ public class App {
     System.out.print("명령> ");
     input = sc.nextLine();
     }
-
 }
 ```
-
-<br>
 
 7-2. 명령어뿐만 아니라 사용자로부터 입력받는 기능을 모두 prompt()를 사용하여 처리<br>
 => prompt()를 호출할 때 사용자에게 출력할 프롬프트 메시지를 아규먼트로 넘김<br>
 => prompt()는 호출할 때 넘어온 프롬프트 메시지 값을 파라미터로 받음<br>
+
 ```java
 public class App {
-
     static String input;
-    
+
     public static void main(String[] args) {
         while (true) {
             prompt("명령> ");   //while 문 안에 넣기
@@ -99,17 +95,14 @@ public class App {
         System.out.print(title);
         input = sc.nextLine();
     }
-
 }
 ```
 
-<br>
-
 7-3. prompt()가 작업한 결과를 클래스 변수에 담지 말고 호출자에게 리턴<br>
 => prompt()를 실행한 후 사용자가 입력한 문자열 리턴<br>
+
 ```java
 public class App {
-
     static String input;    //(x)
     
     public static void main(String[] args) {
@@ -163,17 +156,14 @@ public class App {
         String input = sc.nextLine();
         return input;
     }
-
 }
 ```
 
-<br>
-
-8. 8단계: prompt()를 목적에 따라 더 세분화하여 분리<br>
+8. prompt()를 목적에 따라 더 세분화하여 분리<br>
 => promptString(), promptInt(), promptDate()<br>
+
 ```java
 public class App {
-    
     public static void main(String[] args) {
         while (true) {
             String input = promptString("명령> ");
@@ -234,13 +224,11 @@ public class App {
         System.out.print(title);
         return Date.valueOf(sc.nextLine());
      }
-
 }
 ```
 
-<br>
+8-2. promptString(), promptInt(), promptDate()의 코드 정리
 
-8-1. promptString(), promptInt(), promptDate()의 코드 정리<br>
 ```java
 public class App {
     
@@ -261,7 +249,6 @@ public class App {
     static Date promptDate(String title) {
         return Date.valueOf(promptString(title));
     }
-    
 }
 ```
 

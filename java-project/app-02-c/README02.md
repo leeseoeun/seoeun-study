@@ -1,6 +1,7 @@
-## **02-c. 값 다루기: 배열과 흐름 제어문 활용**<br>
-### **3. 실습**<br>
-#### **1단계: 여러 명의 회원 정보를 입력받아 출력**<br>
+### **02-c. 값 다루기: 배열과 흐름 제어문 활용**<br>
+#### **3. 실습**<br>
+1. 여러 명의 회원 정보를 입력받아 출력<br>
+
 ```console
 [회원]
 번호? 101
@@ -25,14 +26,7 @@
 102, 라이언, ryan@test.com, 010-2222-3333, 2021-07-22
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.util.Date;
-import java.util.Scanner;
-
 //1. 배열 사용 전
 //2. 배열 사용 후
 //3. 반복문 적용: while 문
@@ -43,9 +37,7 @@ import java.util.Scanner;
 //8. 날짜의 출력 형식을 "yyyy-MM-dd"로 변경
 
 public class App {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     //5. 여러 문장에서 반복해서 사용하는 값은 변수에 담아서 사용
@@ -114,15 +106,12 @@ public class App {
           tel[i],
           registeredDate[i]);
     }
-
   }
-
 }
 ```
 
-<br>
+2. 여러 개의 프로젝트 정보를 입력받아 출력<br>
 
-#### **2단계: 여러 개의 프로젝트 정보를 입력받아 출력**<br>
 ```console
 [프로젝트]
 번호? 1201
@@ -149,18 +138,9 @@ public class App {
 1202, 프로젝트2, 2021-07-23, 2021-08-13, 라이언
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App2 {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     final int MAX_LENGTH = 5;
@@ -220,15 +200,12 @@ public class App2 {
       System.out.printf("%d, %s, %s, %s, %s\n",
           no[i], title[i], startDate[i], endDate[i], owner[i]);
     }
-
   }
-
 }
 ```
 
-<br>
+3. 한개의 작업 정보를 입력받아 출력<br>
 
-#### **3단계: 한개의 작업 정보를 입력받아 출력**<br>
 ```console
 [작업]
 프로젝트? 프로젝트1
@@ -261,18 +238,9 @@ public class App2 {
 2, 작업2, 2021-07-23, 진행 중, 라이언
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App3 {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     final int MAX_LENGTH = 5;
@@ -343,10 +311,9 @@ public class App3 {
           System.out.println("상태: 신규");
       }
 
-      System.out.printf("%d, %s, %s, %s, %s", no[i], content[i], deadline[i], stateLabel, owner[i]);
+      System.out.printf("%d, %s, %s, %s, %s",
+          no[i], content[i], deadline[i], stateLabel, owner[i]);
     }
-
   }
-
 }
 ```

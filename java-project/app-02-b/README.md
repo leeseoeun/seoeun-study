@@ -1,4 +1,4 @@
-## **02-b. 값 다루기: 변수와 키보드 입력**<br>
+### **02-b. 값 다루기: 변수와 키보드 입력**<br>
 1. 변수: 값을 저장하는 메모리, 저장한 값 변경, 저장한 값을 바꿀 수 있음<br>
 <-> 상수: 저장한 값을 바꿀 수 없음<br>
 2. 키보드: 표준 입력 장치<br>
@@ -11,24 +11,19 @@
 3-3. 문자 값: **char** 2바이트<br>
 3-4. 논리 값: **boolean** int 사용, 배열일 경우 byte 사용
 
-<br>
-
-### **1. 훈련 목표**<br>
+#### **1. 훈련 목표**<br>
 1. 키보드로 값을 입력받는 방법을 배움<br>
 2. 값을 보관하기 위해 변수를 사용하는 방법을 배움<br>
 
-<br>
-
-### **2. 훈련 내용**<br>
+#### **2. 훈련 내용**<br>
 1. 콘솔을 통해 한명의 회원 정보를 입력받아 출력<br>
 2. 콘솔을 통해 한개의 프로젝트 정보를 입력받아 출력<br>
 3. 콘솔을 통해 한개의 작업 정보를 입력받아 출력<br>
 
-<br>
+#### **3. 실습**<br>
+1. 한명의 회원 정보를 입력받아 출력<br>
+1-1. 입력 값을 String 변수에 받음<br>
 
-### **3. 실습**<br>
-#### **1단계: 한명의 회원 정보를 입력받아 출력**<br>
-입력 값을 String 변수에 받음
 ```console
 [회원]
 번호?
@@ -48,18 +43,9 @@
 가입 일: 2021-01-01
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     System.out.println("[회원]");
@@ -96,16 +82,13 @@ public class App {
     System.out.println("사진: " + photo);
     System.out.println("전화: " + tel);
     System.out.println("가입 일: " + registeredDate);
-
   }
-
 }
 ```
 
-<br>
+2.  한개의 프로젝트 정보를 입력받아 출력<br>
+2-1. 번호는 int 변수에 받고, 시작 일과 종료일은 java.sql.Date 변수에 받음<br>
 
-#### **2단계: 한개의 프로젝트 정보를 입력받아 출력**<br>
-번호는 int 변수에 받고, 시작 일과 종료일은 java.sql.Date 변수에 받음<br>
 ```console
 [프로젝트]
 번호?
@@ -126,18 +109,9 @@ public class App {
 팀원: 춘식이, 라이언, 어피치
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App2 {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     System.out.println("[프로젝트]");
@@ -178,16 +152,13 @@ public class App2 {
     System.out.printf("종료 일: %s\n", endDate);
     System.out.printf("만든 이: %s\n", owner);
     System.out.printf("팀원: %s\n", members);
-
   }
-
 }
 ```
 
-<br>
+3. 한개의 작업 정보를 입력받아 출력<br>
+3-1. 프로젝트에서 수행할 작업 정보 출력<br>
 
-#### **3단계: 한개의 작업 정보를 입력받아 출력**<br>
-프로젝트에서 수행할 작업 정보 출력<br>
 ```console
 [작업]
 프로젝트?
@@ -210,14 +181,7 @@ public class App2 {
 담당자: 춘식이
 ```
 
-<br>
-
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App3 {
 
   public static void main(String[] args) {
@@ -276,8 +240,6 @@ public class App3 {
     }
 
     System.out.printf("담당자: %s\n", owner);
-
   }
-
 }
 ```

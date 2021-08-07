@@ -14,6 +14,7 @@
 1. 프로젝트 정보를 등록할 때 만든 이의 이름을 회원 정보에서 조회<br>
 1-1. 만든 이의 이름이 유효하다면 다음 입력으로 넘어감<br>
 1-2. 만든 이의 이름이 무효하다면 오류를 알리고 다시 입력받음<br>
+
 ```java
 public class MemberHandler {
 static boolean exits(String name) {
@@ -26,6 +27,7 @@ static boolean exits(String name) {
 }
 }
 ```
+
 ```java
 public class ProjectHandler {
 public static void add() {
@@ -41,9 +43,8 @@ public static void add() {
 }
 ```
 
-<br>
-
 2. 프로젝트의 만든 이 이름을 입력하지 않으면 프로젝트 등록 취소<br>
+
 ```java
 public class ProjectHandler {
 public static void add() {
@@ -55,11 +56,10 @@ public static void add() {
 }
 ```
 
-<br>
-
 3. 프로젝트 팀원을 등록할 때 회원 정보에서 조회<br>
 3-1. 팀원 이름을 입력받고 등록된 회원이 아니면 오류를 알림<br>
 3-2. 팀원 등록을 완료하고 싶다면 빈 문자열 입력<br>
+
 ```java
 public class ProjectHandler {
 public static void add() {
@@ -78,9 +78,8 @@ public static void add() {
 }
 ```
 
-<br>
-
 4. 프로젝트 목록을 출력할 때 팀원 이름도 포함<br>
+
 ```java
 public class ProjectHandler {
 public static void add() {
@@ -109,6 +108,7 @@ public static void add() {
 }
 }
 ```
+
 ```java
 public static void list() {
     System.out.println("[프로젝트 목록]");
@@ -124,12 +124,11 @@ public static void list() {
 }
 ```
 
-<br>
-
 5. 작업 정보를 등록할 때 담당자 이름을 회원 정보에서 조회<br>
 5-1. 담당자의 이름이 유효하다면 다음 입력으로 넘어감<br>
 5-2. 담당자의 이름이 무효하다면 오류를 알리고 다시 입력받음<br>
 5-3. 담당자의 이름이 빈 문자열이라면 등록 취소<br>
+
 ```java
 public class TaskHandler {
 public static void add() {

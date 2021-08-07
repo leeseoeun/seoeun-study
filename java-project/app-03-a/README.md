@@ -1,43 +1,33 @@
-## **03-a. 메서드 사용법: 프로그램의 시작 점(entry point), main()**<br>
+### **03-a. 메서드 사용법: 프로그램의 시작 점(entry point), main()**<br>
 JVM으로 클래스를 실행하면 그 클래스에 정의된 **main()** 메서드를 찾아 명령어 실행<br>
     -> JVM(자바 가상 머신, Java virtual machine): 자바 언어로 작성된 프로그램을 해석해서 실행하는 가상적 컴퓨터<br>
     *출처: 한국정보통신기술협회, 정보통신용어사전*
 
-<br>
-
-### **1. 훈련 목표**<br>
+#### **1. 훈련 목표**<br>
 1. 클래스 실행과 main() 메서드의 관계 이해<br>
 2. 조건 문, 반복 문, 블록, 배열 등의 활용 연습<br>
 
+#### **2. 훈련 내용**<br>
+1. 명령 프롬프트 출력<br>
+2. 명령어를 입력받아 출력<br>
+3. 명령어를 입력받는 것을 반복<br>
 <br>
 
-### **2. 훈련 내용**<br>
-1. 1단계: 명령 프롬프트 출력<br>
-2. 2단계: 명령어를 입력받아 출력<br>
-3. 3단계: 명령어를 입력받는 것을 반복<br>
+4. '/member/add', '/member/list' 명령 구분<br>
+5. '/member/add' 명령 처리<br>
+6. '/member/list' 명령 처리<br>
 <br>
-4. 4단계: '/member/add', '/member/list' 명령 구분<br>
-5. 5단계: '/member/add' 명령 처리<br>
-6. 6단계: '/member/list' 명령 처리<br>
-<br>
-7. 7단계: '/project/add' 명령 처리<br>
-8. 8단계: '/project/list' 명령 처리<br>
-<br>
-9. 9단계: '/task/add' 명령 처리<br>
-10. 10단계: '/task/list' 명령 처리<br>
 
+7. '/project/add' 명령 처리<br>
+8. '/project/list' 명령 처리<br>
 <br>
+
+9. '/task/add' 명령 처리<br>
+10. '/task/list' 명령 처리<br>
 
 ```java
-package com.eomcs.pms;
-
-import java.sql.Date;
-import java.util.Scanner;
-
 public class App {
-
   public static void main(String[] args) {
-
     Scanner sc = new Scanner(System.in);
 
     final int MAX_LENGTH = 5;
@@ -187,10 +177,7 @@ public class App {
     }
 
     sc.close();
-
-
   }
-
 }
 ```
 
