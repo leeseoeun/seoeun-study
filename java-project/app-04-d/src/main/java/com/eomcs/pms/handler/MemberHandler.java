@@ -6,8 +6,8 @@ import com.eomcs.util.Prompt;
 
 public class MemberHandler {
 
-  static final int MAX_LENGTH = 5;
-  static Member[] members = new Member[MAX_LENGTH];
+  static final int LENGTH = 5;
+  static Member[] members = new Member[LENGTH];
   static int size = 0;
 
   public static void add() {    //Project와 Task의 메서드도 public으로
