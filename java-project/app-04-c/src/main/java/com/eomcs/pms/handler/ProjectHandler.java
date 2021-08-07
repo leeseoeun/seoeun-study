@@ -1,6 +1,7 @@
-package com.eomcs.pms;
+package com.eomcs.pms.handler;
 
-import java.sql.Date;
+import com.eomcs.pms.domain.Project;
+import com.eomcs.util.Prompt;
 
 public class ProjectHandler {
 
@@ -8,9 +9,9 @@ public class ProjectHandler {
   static Project[] projects = new Project[LENGTH];
   static int size = 0;
 
-  static void add() {
+  public static void add() {
     Project project = new Project();
-    
+
     System.out.println("[프로젝트 등록]");
     project.no = Prompt.promptInt("번호? ");
     project.title = Prompt.promptString("프로젝트명? ");
@@ -23,7 +24,7 @@ public class ProjectHandler {
     projects[size++] = project;
   }
 
-  static void list() {
+  public static void list() {
     System.out.println("[프로젝트 목록]");
     for (int i=0; i<size; i++) {
       System.out.printf("%d, %s, %s, %s, %s\n",

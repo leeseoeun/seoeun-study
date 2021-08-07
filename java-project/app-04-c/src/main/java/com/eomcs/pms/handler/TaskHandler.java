@@ -1,4 +1,7 @@
-package com.eomcs.pms;
+package com.eomcs.pms.handler;
+
+import com.eomcs.pms.domain.Task;
+import com.eomcs.util.Prompt;
 
 public class TaskHandler {
 
@@ -6,7 +9,7 @@ public class TaskHandler {
   static Task[] tasks = new Task[LENGTH];
   static int size = 0;
 
-  static void add() {
+  public static void add() {
     Task task = new Task();
 
     System.out.println("[작업 등록]");
@@ -23,7 +26,7 @@ public class TaskHandler {
     tasks[size++] = task;
   }
 
-  static void list() {
+  public static void list() {
     System.out.println("[작업 목록]");
     String statusLabel = null;
     for (int i=0; i<size; i++) {

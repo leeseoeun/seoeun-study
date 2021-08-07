@@ -1,14 +1,16 @@
-package com.eomcs.pms;
+package com.eomcs.pms.handler;
 
 import java.sql.Date;
+import com.eomcs.pms.domain.Member;
+import com.eomcs.util.Prompt;
 
 public class MemberHandler {
 
   static final int LENGTH = 5;
-  static Member[] members = new Member[LENGTH]; //스태틱 메서드에서 쓰니까 static
+  static Member[] members = new Member[LENGTH];
   static int size = 0;
 
-  static void add() {
+  public static void add() {    //Project와 Task의 메서드도 public으로
     Member member = new Member();
 
     System.out.println("[회원 등록]");
@@ -23,7 +25,7 @@ public class MemberHandler {
     members[size++] = member;
   }
 
-  static void list() {
+  public static void list() {
     System.out.println("[회원 목록]");
     for (int i=0; i<size; i++) {
       System.out.printf("%d, %s, %s, %s, %s\n",
