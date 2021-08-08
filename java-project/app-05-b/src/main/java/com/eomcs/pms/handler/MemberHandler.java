@@ -7,10 +7,10 @@ import com.eomcs.util.Prompt;
 public class MemberHandler {
 
   static final int MAX_LENGTH = 5;
-  Member[] members = new Member[MAX_LENGTH];
-  int size = 0;
+  static Member[] members = new Member[MAX_LENGTH];
+  static int size = 0;
 
-  public void add() {
+  public static void add() {    //Project와 Task의 메서드도 public으로
     Member member = new Member();
 
     System.out.println("[회원 등록]");
@@ -22,24 +22,24 @@ public class MemberHandler {
     member.tel = Prompt.promptString("전화? ");
     member.registeredDate = new Date(System.currentTimeMillis());
 
-    this.members[this.size++] = member;
+    members[size++] = member;
   }
 
-  public void list() {
+  public static void list() {
     System.out.println("[회원 목록]");
-    for (int i=0; i<this.size; i++) {
+    for (int i=0; i<size; i++) {
       System.out.printf("%d, %s, %s, %s, %s\n",
-          this.members[i].no,
-          this.members[i].name,
-          this.members[i].email,
-          this.members[i].tel,
-          this.members[i].registeredDate);
+          members[i].no,
+          members[i].name,
+          members[i].email,
+          members[i].tel,
+          members[i].registeredDate);
     }
   }
 
-  boolean exits(String name) {
-    for (int i=0; i<this.size; i++) {
-      if (name.equals(this.members[i].name)) {
+  static boolean exits(String name) {
+    for (int i=0; i<size; i++) {
+      if (name.equals(members[i].name)) {
         return true;
       }
     }

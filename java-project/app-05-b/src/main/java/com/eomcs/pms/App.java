@@ -11,9 +11,6 @@ public class App {
   public static void main(String[] args) {
 
     BoardHandler boardHandler = new BoardHandler();
-    MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler();
-    TaskHandler taskHandler = new TaskHandler();
 
     while (true) {
       String input = Prompt.promptString("명령? ");
@@ -23,28 +20,28 @@ public class App {
         break;
 
       } else if (input.equals("/member/add")) {
-        memberHandler.add();
+        MemberHandler.add();
 
       } else if (input.equals("/member/list")) {
-        memberHandler.list();
+        MemberHandler.list();
 
       } else if (input.equals("/project/add")) {
-        projectHandler.add(memberHandler);
+        ProjectHandler.add();
 
       } else if (input.equals("/project/list")) {
-        projectHandler.list();
+        ProjectHandler.list();
 
       } else if (input.equals("/task/add")) {
-        taskHandler.add(memberHandler);
+        TaskHandler.add();
 
       } else if (input.equals("/task/list")) {
-        taskHandler.list();
+        TaskHandler.list();
 
       } else if (input.equals("/board/add")) {
-        boardHandler.add();
+        BoardHandler.add(boardHandler);
 
       } else if (input.equals("/board/list")) {
-        boardHandler.list();
+        BoardHandler.list(boardHandler);
 
       } else {
         System.out.println("실행할 수 없는 명령어입니다.");

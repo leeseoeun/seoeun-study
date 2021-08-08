@@ -6,10 +6,10 @@ import com.eomcs.util.Prompt;
 public class TaskHandler {
 
   static final int MAX_LENGTH = 5;
-  Task[] tasks = new Task[MAX_LENGTH];
-  int size = 0;
+  static Task[] tasks = new Task[MAX_LENGTH];
+  static int size = 0;
 
-  public void add(MemberHandler memberHandler) {
+  public static void add() {
     Task task = new Task();
 
     System.out.println("[작업 등록]");
@@ -24,7 +24,7 @@ public class TaskHandler {
 
     while (true) {
       String owner = Prompt.promptString("담당자?(취소: 빈 문자열) ");
-      if (memberHandler.exits(owner)) {
+      if (MemberHandler.exits(owner)) {
         task.owner = owner;
         break;
       } else if (owner.length() == 0) {
@@ -34,13 +34,13 @@ public class TaskHandler {
       System.out.println("등록된 회원이 아닙니다.");
     }
 
-    this.tasks[this.size++] = task;
+    tasks[size++] = task;
   }
 
-  public void list() {
+  public static void list() {
     System.out.println("[작업 목록]");
     String statusLabel = null;
-    for (int i=0; i<this.size; i++) {
+    for (int i=0; i<size; i++) {
       switch (tasks[i].status) {
         case 1:
           statusLabel = "진행중";
@@ -53,11 +53,11 @@ public class TaskHandler {
       }
 
       System.out.printf("%d, %s, %s, %s, %s\n",
-          this.tasks[i].no,
-          this.tasks[i].content,
-          this.tasks[i].deadline,
+          tasks[i].no,
+          tasks[i].content,
+          tasks[i].deadline,
           statusLabel,
-          this.tasks[i].owner);
+          tasks[i].owner);
     }
   }
 

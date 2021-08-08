@@ -6,11 +6,10 @@ import com.eomcs.util.Prompt;
 public class ProjectHandler {
 
   static final int MAX_LENGTH = 5;
-  Project[] projects = new Project[MAX_LENGTH];
-  int size = 0;
+  static Project[] projects = new Project[MAX_LENGTH];
+  static int size = 0;
 
-  //특정 인스턴스의 값을 다루고 싶다면 파라미터로 그 인스턴스의 주소를 받아야 함
-  public void add(MemberHandler memberHandler) {
+  public static void add() {
     Project project = new Project();
 
     System.out.println("[프로젝트 등록]");
@@ -22,7 +21,7 @@ public class ProjectHandler {
 
     while (true) {
       String owner = Prompt.promptString("만든이?(취소: 빈 문자열) ");
-      if (memberHandler.exits(owner)) {
+      if (MemberHandler.exits(owner)) {
         project.owner = owner;
         break;
       }
@@ -36,11 +35,18 @@ public class ProjectHandler {
     String members = "";
     while (true) {
       String member = Prompt.promptString("팀원?(완료: 빈 문자열) ");
-      if (memberHandler.exits(member)) {
+      if (MemberHandler.exits(member)) {
         if (members.length() > 0) {
           members += ",";
         }
         members += member;
+
+        //        if (members.length() == 0) {
+        //          members += member;
+        //        } else if (members.length() > 0) {
+        //          members += "," + member;
+        //        }
+
         continue;
       } else if (member.length() == 0) {
         break;
@@ -49,19 +55,19 @@ public class ProjectHandler {
     }
     project.members = members;
 
-    this.projects[this.size++] = project;
+    projects[size++] = project;
   }
 
-  public void list() {
+  public static void list() {
     System.out.println("[프로젝트 목록]");
-    for (int i=0; i<this.size; i++) {
+    for (int i=0; i<size; i++) {
       System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
-          this.projects[i].no,
-          this.projects[i].title,
-          this.projects[i].startDate,
-          this.projects[i].endDate,
-          this.projects[i].owner,
-          this.projects[i].members);
+          projects[i].no,
+          projects[i].title,
+          projects[i].startDate,
+          projects[i].endDate,
+          projects[i].owner,
+          projects[i].members);
     }
   }
 
