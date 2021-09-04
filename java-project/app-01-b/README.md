@@ -49,7 +49,10 @@ app$ gradle eclipse
 <br>
 
 #### **이클립스 프로젝트의 조건**<br>
-.project, .classpath, settings/<br>
+1. .project<br>
+2. .classpath<br>
+3. settings/<br>
+
 ```console
 [cmd]
 app$ gradle eclipseProject
