@@ -6,6 +6,11 @@ import com.eomcs.util.Prompt;
 
 public class ProjectHandler {
 
+  /*
+  ProjectHandler가 지속적으로 사용할 의존 객체는 인스턴스 필드로 받음
+  이 인스턴스 변수에 의존 객체의 주소를 넣을 수 있도록 접근 모드를 공개로 설정
+  public MemberHandler memberHandler;
+   */
   MemberHandler memberHandler;
   //인스턴스를 사용하기 전에 값을 설정해야 하는 인스턴스 변수가 있다면 생성자의 파라미터로 선언
   public ProjectHandler(MemberHandler memberHandler) {
