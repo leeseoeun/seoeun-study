@@ -6,7 +6,10 @@ import com.eomcs.util.Prompt;
 
 public class TaskHandler {
 
-  public MemberHandler memberHandler;
+  MemberHandler memberHandler;
+  public TaskHandler(MemberHandler memberHandler) {
+    this.memberHandler = memberHandler;
+  }
 
   static final int MAX_LENGTH = 5;
   Task[] tasks = new Task[MAX_LENGTH];
@@ -174,7 +177,7 @@ public class TaskHandler {
 
   private int promptStatus(int status) {
     if (status == -1) {
-      System.out.println("상태?\n");
+      System.out.println("상태?");
     } else {
       System.out.printf("상태(%s)?\n", getStatusLabel(status));
     }

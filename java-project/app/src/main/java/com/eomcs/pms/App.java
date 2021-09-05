@@ -13,14 +13,9 @@ public class App {
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
 
-    ProjectHandler projectHandler = new ProjectHandler();
-    projectHandler.memberHandler = memberHandler;
-    //ProjectHandler의 메서드가 사용할 의존 객체는
-    //메서드를 호출할 때마다 파라미터로 전달하는 것이 아니라
-    //인스턴스 변수에 미리 주입
+    ProjectHandler projectHandler = new ProjectHandler(memberHandler);
 
-    TaskHandler taskHandler = new TaskHandler();
-    taskHandler.memberHandler = memberHandler;
+    TaskHandler taskHandler = new TaskHandler(memberHandler);
 
     while (true) {
       String input = Prompt.inputString("명령? ");
@@ -64,6 +59,9 @@ public class App {
 
       } else if (input.equals("/task/list")) {
         taskHandler.list();
+
+      } else if (input.equals("/task/detail")) {
+        taskHandler.detail();
 
       } else if (input.equals("/task/update")) {
         taskHandler.update();
