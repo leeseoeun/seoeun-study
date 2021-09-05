@@ -6,11 +6,15 @@ import com.eomcs.util.Prompt;
 
 public class ProjectHandler {
 
+  //ProjectHandler가 지속적으로 사용할 의존 객체는 인스턴스 필드로 받음
+  //이 인스턴스 변수에 의존 객체의 주소를 넣을 수 있도록 접근 모드를 공개로 설정
+  public MemberHandler memberHandler;
+
   static final int MAX_LENGTH = 5;
   Project[] projects = new Project[MAX_LENGTH];
   int size = 0;
 
-  public void add(MemberHandler memberHandler) {
+  public void add() {
     Project project = new Project();
 
     System.out.println("[프로젝트 등록]");
@@ -20,13 +24,13 @@ public class ProjectHandler {
     project.startDate = Prompt.inputDate("시작일? ");
     project.endDate = Prompt.inputDate("종료일? ");
 
-    project.owner = promptOwner(memberHandler, "만든이?(취소: 빈 문자열) ");
+    project.owner = promptOwner("만든이?(취소: 빈 문자열) ");
     if (project.owner == null) {
       System.out.println("프로젝트 등록을 취소합니다.");
       return;
     }
 
-    project.members = promptMembers(memberHandler);
+    project.members = promptMembers();
 
     this.projects[this.size++] = project;
   }
@@ -64,7 +68,7 @@ public class ProjectHandler {
     System.out.printf("팀원: %s\n", project.members);
   }
 
-  public void update(MemberHandler memberHandler) {
+  public void update() {
     System.out.println("[프로젝트 변경]");
 
     int no = Prompt.inputInt("번호? ");
@@ -81,13 +85,13 @@ public class ProjectHandler {
     Date startDate = Prompt.inputDate(String.format("시작일(%s)? ", project.startDate));
     Date endDate = Prompt.inputDate(String.format("종료일(%s)? ", project.endDate));
 
-    String owner = promptOwner(memberHandler, String.format("만든이(%s)? ", project.owner));
+    String owner = promptOwner(String.format("만든이(%s)? ", project.owner));
     if (owner == null) {
       System.out.println("프로젝트 등록을 취소합니다.");
       return;
     }
 
-    String members = promptMembers(memberHandler, project.members);
+    String members = promptMembers(project.members);
 
     String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
@@ -150,24 +154,26 @@ public class ProjectHandler {
     return -1;
   }
 
-  private String promptOwner(MemberHandler memberHandler, String label) {
+  private String promptOwner(String label) {
     while (true) {
       String owner = Prompt.inputString(label);
-      if (memberHandler.exits(owner)) {
+
+      //MemberHandler 인스턴스는 인스턴스 필드에 미리 주입되어 있기 때문에 파라미터로 받을 필요가 없음
+      //인스턴스 변수를 직접 사용하면 됨
+      if (this.memberHandler.exits(owner)) {
         return owner;
-      }
-      else if (owner.length() == 0) {
+      } else if (owner.length() == 0) {
         return null;
       }
       System.out.println("등록된 회원이 아닙니다.");
     }
   }
 
-  private String promptMembers(MemberHandler memberHandler) {
-    return promptMembers(memberHandler, null);
+  private String promptMembers() {
+    return promptMembers(null);
   }
 
-  private String promptMembers(MemberHandler memberHandler, String oldMembers) {
+  private String promptMembers(String oldMembers) {
     String members = "";
     while (true) {
       String member = Prompt.inputString(String.format(

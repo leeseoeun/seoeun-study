@@ -6,11 +6,13 @@ import com.eomcs.util.Prompt;
 
 public class TaskHandler {
 
+  public MemberHandler memberHandler;
+
   static final int MAX_LENGTH = 5;
   Task[] tasks = new Task[MAX_LENGTH];
   int size = 0;
 
-  public void add(MemberHandler memberHandler) {
+  public void add() {
     Task task = new Task();
 
     System.out.println("[작업 등록]");
@@ -20,7 +22,7 @@ public class TaskHandler {
 
     task.status = promptStatus();
 
-    task.owner = promptOwner(memberHandler, "담당자?(취소: 빈 문자열) ");
+    task.owner = promptOwner("담당자?(취소: 빈 문자열) ");
     if (task.owner == null) {
       System.out.println("작업 등록을 취소합니다.");
       return;
@@ -62,7 +64,7 @@ public class TaskHandler {
     System.out.printf("담당자: %s\n", task.owner);
   }
 
-  public void update(MemberHandler memberHandler) {
+  public void update() {
     System.out.println("[작업 변경]");
 
     int no = Prompt.inputInt("번호? ");
@@ -79,7 +81,7 @@ public class TaskHandler {
 
     int status = promptStatus(task.status);
 
-    String owner = promptOwner(memberHandler, String.format(
+    String owner = promptOwner(String.format(
         "담당자(%s)?(취소: 빈 문자열) ", task.owner));
     if (owner == null) {
       System.out.println("작업 변경을 취소합니다.");
@@ -153,10 +155,10 @@ public class TaskHandler {
     }
   }
 
-  private String promptOwner(MemberHandler memberHandler, String label) {
+  private String promptOwner(String label) {
     while (true) {
       String owner = Prompt.inputString(label);
-      if (memberHandler.exits(owner)) {
+      if (this.memberHandler.exits(owner)) {
         return owner;
       } else if (owner.length() == 0) {
         return null;
