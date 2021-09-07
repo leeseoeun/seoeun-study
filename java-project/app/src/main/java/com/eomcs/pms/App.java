@@ -1,29 +1,9 @@
 package com.eomcs.pms;
 
-import com.eomcs.pms.handler.BoardAddMenu;
-import com.eomcs.pms.handler.BoardDeleteMenu;
-import com.eomcs.pms.handler.BoardDetailMenu;
 import com.eomcs.pms.handler.BoardHandler;
-import com.eomcs.pms.handler.BoardListMenu;
-import com.eomcs.pms.handler.BoardUpdateMenu;
-import com.eomcs.pms.handler.MemberAddMenu;
-import com.eomcs.pms.handler.MemberDeleteMenu;
-import com.eomcs.pms.handler.MemberDetailMenu;
 import com.eomcs.pms.handler.MemberHandler;
-import com.eomcs.pms.handler.MemberListMenu;
-import com.eomcs.pms.handler.MemberUpdateMenu;
-import com.eomcs.pms.handler.ProjectAddMenu;
-import com.eomcs.pms.handler.ProjectDeleteMenu;
-import com.eomcs.pms.handler.ProjectDetailMenu;
 import com.eomcs.pms.handler.ProjectHandler;
-import com.eomcs.pms.handler.ProjectListMenu;
-import com.eomcs.pms.handler.ProjectUpdateMenu;
-import com.eomcs.pms.handler.TaskAddMenu;
-import com.eomcs.pms.handler.TaskDeleteMenu;
-import com.eomcs.pms.handler.TaskDetailMenu;
 import com.eomcs.pms.handler.TaskHandler;
-import com.eomcs.pms.handler.TaskListMenu;
-import com.eomcs.pms.handler.TaskUpdateMenu;
 import com.eomcs.pms.menu.Menu;
 import com.eomcs.pms.menu.MenuGroup;
 import com.eomcs.util.Prompt;
@@ -53,38 +33,122 @@ public class App {
     MenuGroup boardMenu = new MenuGroup("게시판");
     mainMenuGroup.add(boardMenu);
 
-    boardMenu.add(new BoardAddMenu(boardHandler));
-    boardMenu.add(new BoardListMenu(boardHandler));
-    boardMenu.add(new BoardDetailMenu(boardHandler));
-    boardMenu.add(new BoardUpdateMenu(boardHandler));
-    boardMenu.add(new BoardDeleteMenu(boardHandler));
+    //1. 클래스 이름 지우기
+    //2. 클래스 이름이 없으니까 public class extends 지우기
+    //3. 생성자 호출하기
+    //4. ; 붙이기
+    boardMenu.add(new Menu("등록") {
+      @Override
+      public void execute() {
+        boardHandler.add();
+      }});
+    boardMenu.add(new Menu("목록") {
+      @Override
+      public void execute() {
+        boardHandler.list();
+      }});
+    boardMenu.add(new Menu("상세보기") {
+      @Override
+      public void execute() {
+        boardHandler.detail();
+      }});
+    boardMenu.add(new Menu("변경") {
+      @Override
+      public void execute() {
+        boardHandler.update();
+      }});
+    boardMenu.add(new Menu("삭제") {
+      @Override
+      public void execute() {
+        boardHandler.delete();
+      }});
 
     MenuGroup memberMenu = new MenuGroup("회원");
     mainMenuGroup.add(memberMenu);
 
-    memberMenu.add(new MemberAddMenu(memberHandler));
-    memberMenu.add(new MemberListMenu(memberHandler));
-    memberMenu.add(new MemberDetailMenu(memberHandler));
-    memberMenu.add(new MemberUpdateMenu(memberHandler));
-    memberMenu.add(new MemberDeleteMenu(memberHandler));
+    memberMenu.add(new Menu("등록") {
+      @Override
+      public void execute() {
+        memberHandler.add();
+      }});
+    memberMenu.add(new Menu("목록") {
+      @Override
+      public void execute() {
+        memberHandler.list();
+      }});
+    memberMenu.add(new Menu("상세보기") {
+      @Override
+      public void execute() {
+        memberHandler.detail();
+      }});
+    memberMenu.add(new Menu("변경") {
+      @Override
+      public void execute() {
+        memberHandler.update();
+      }});
+    memberMenu.add(new Menu("삭제") {
+      @Override
+      public void execute() {
+        memberHandler.delete();
+      }});
 
     MenuGroup projectMenu = new MenuGroup("프로젝트");
     mainMenuGroup.add(projectMenu);
 
-    projectMenu.add(new ProjectAddMenu(projectHandler));
-    projectMenu.add(new ProjectListMenu(projectHandler));
-    projectMenu.add(new ProjectDetailMenu(projectHandler));
-    projectMenu.add(new ProjectUpdateMenu(projectHandler));
-    projectMenu.add(new ProjectDeleteMenu(projectHandler));
+    projectMenu.add(new Menu("등록") {
+      @Override
+      public void execute() {
+        projectHandler.add();
+      }});
+    projectMenu.add(new Menu("목록") {
+      @Override
+      public void execute() {
+        projectHandler.list();
+      }});
+    projectMenu.add(new Menu("상세보기") {
+      @Override
+      public void execute() {
+        projectHandler.detail();
+      }});
+    projectMenu.add(new Menu("변경") {
+      @Override
+      public void execute() {
+        projectHandler.update();
+      }});
+    projectMenu.add(new Menu("삭제") {
+      @Override
+      public void execute() {
+        projectHandler.delete();
+      }});
 
     MenuGroup taskMenu = new MenuGroup("작업");
     mainMenuGroup.add(taskMenu);
 
-    taskMenu.add(new TaskAddMenu(taskHandler));
-    taskMenu.add(new TaskListMenu(taskHandler));
-    taskMenu.add(new TaskDetailMenu(taskHandler));
-    taskMenu.add(new TaskUpdateMenu(taskHandler));
-    taskMenu.add(new TaskDeleteMenu(taskHandler));
+    taskMenu.add(new Menu("등록") {
+      @Override
+      public void execute() {
+        taskHandler.add();
+      }});
+    taskMenu.add(new Menu("목록") {
+      @Override
+      public void execute() {
+        taskHandler.list();
+      }});
+    taskMenu.add(new Menu("상세보기") {
+      @Override
+      public void execute() {
+        taskHandler.detail();
+      }});
+    taskMenu.add(new Menu("변경") {
+      @Override
+      public void execute() {
+        taskHandler.update();
+      }});
+    taskMenu.add(new Menu("삭제") {
+      @Override
+      public void execute() {
+        taskHandler.delete();
+      }});
 
     return mainMenuGroup;
   }
