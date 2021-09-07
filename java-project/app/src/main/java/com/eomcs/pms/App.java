@@ -10,23 +10,27 @@ import com.eomcs.util.Prompt;
 
 public class App {
 
-  static BoardHandler boardHandler = new BoardHandler();
-  static MemberHandler memberHandler = new MemberHandler();
+  BoardHandler boardHandler = new BoardHandler();
+  MemberHandler memberHandler = new MemberHandler();
 
-  static ProjectHandler projectHandler = new ProjectHandler(memberHandler);
+  ProjectHandler projectHandler = new ProjectHandler(memberHandler);
 
-  static TaskHandler taskHandler = new TaskHandler(memberHandler);
+  TaskHandler taskHandler = new TaskHandler(memberHandler);
 
   public static void main(String[] args) {
-    Menu mainMenu = createMenu();
-    mainMenu.execute();
+    App app = new App();
+    app.service();
+  }
+
+  void service() {
+    createMenu().execute();
 
     Prompt.close();
   }
 
   //트리 구조일 때 composite 패턴으로 만들기
   //수퍼 클래스 타입으로 만들기
-  static Menu createMenu() {
+  Menu createMenu() {
     MenuGroup mainMenuGroup = new MenuGroup("메인");
     mainMenuGroup.setPrevMenuTitle("종료");
 
