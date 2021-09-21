@@ -129,7 +129,7 @@ public class BoardHandler {
 
     while (node != null) {
       if (node.board == board) {
-        //삭제하려는 node가 '하필' head라면
+        //삭제할 node가 '하필' head라면
         if (node == head) {
           head = node.next;
         } else {
