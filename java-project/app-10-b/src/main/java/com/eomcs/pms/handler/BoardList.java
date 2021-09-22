@@ -2,12 +2,12 @@ package com.eomcs.pms.handler;
 
 import com.eomcs.pms.domain.Board;
 
-public class BoardList2 extends LinkedList {
+public class BoardList extends ArrayList {
 
   public Board findByNo(int no) {
-    Object[] list = toArray();
+    Object[] arr = toArray();
 
-    for (Object obj : list) {
+    for (Object obj : arr) {
       Board board = (Board) obj;
 
       if (board.no == no) {

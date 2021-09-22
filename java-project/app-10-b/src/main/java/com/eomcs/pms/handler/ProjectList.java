@@ -2,12 +2,12 @@ package com.eomcs.pms.handler;
 
 import com.eomcs.pms.domain.Project;
 
-public class ProjectList2 extends LinkedList {
+public class ProjectList extends ArrayList {
 
   public Project findByNo(int no) {
-    Object[] list = toArray();
+    Object[] arr = toArray();
 
-    for (Object obj : list) {
+    for (Object obj : arr) {
       Project project = (Project) obj;
 
       if (project.no == no) {
