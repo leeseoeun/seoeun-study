@@ -4,7 +4,7 @@ import java.sql.Date;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.util.Prompt;
 
-public class TaskHandler extends ArrayList {
+public class TaskHandler {
 
   ArrayList taskList = new ArrayList();
 
