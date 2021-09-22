@@ -1,7 +1,7 @@
-package com.eomcs.pms.menu;
+package com.eomcs.menu;
 
-import com.eomcs.pms.handler.Stack;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.Stack;
 
 public class MenuGroup extends Menu {
 
