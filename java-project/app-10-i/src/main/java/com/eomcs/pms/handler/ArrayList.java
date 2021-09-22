@@ -4,7 +4,6 @@ public class ArrayList extends AbstractList {
 
   static final int MAX_LENGHT = 5;
   Object[] list = new Object[MAX_LENGHT];
-  int size = 0;
 
   @Override
   public void add(Object obj) {
