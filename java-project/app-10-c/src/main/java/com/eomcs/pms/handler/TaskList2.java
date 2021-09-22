@@ -2,12 +2,12 @@ package com.eomcs.pms.handler;
 
 import com.eomcs.pms.domain.Task;
 
-public class TaskList extends ArrayList {
+public class TaskList2 extends LinkedList {
 
   public Task findByNo(int no) {
-    Object[] arr = toArray();
+    Object[] list = toArray();
 
-    for (Object obj : arr) {
+    for (Object obj : list) {
       Task task = (Task) obj;
 
       if (task.no == no) {

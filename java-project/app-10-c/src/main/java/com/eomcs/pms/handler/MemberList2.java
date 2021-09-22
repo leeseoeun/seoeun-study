@@ -2,12 +2,12 @@ package com.eomcs.pms.handler;
 
 import com.eomcs.pms.domain.Member;
 
-public class MemberList extends ArrayList {
+public class MemberList2 extends LinkedList {
 
   public Member findByNo(int no) {
-    Object[] arr = toArray();
+    Object[] list = toArray();
 
-    for (Object obj : arr) {
+    for (Object obj : list) {
       Member member = (Member) obj;
 
       if (member.no == no) {
@@ -18,10 +18,10 @@ public class MemberList extends ArrayList {
     return null;
   }
 
-  boolean exist(String name) {
-    Object[] arr = toArray();
+  public boolean exist(String name) {
+    Object[] list = toArray();
 
-    for (Object obj : arr) {
+    for (Object obj : list) {
       Member member = (Member) obj;
 
       if (member.name.equals(name)) {
