@@ -1,12 +1,12 @@
 package com.eomcs.menu;
 
+import java.util.Stack;
 import com.eomcs.util.Prompt;
-import com.eomcs.util.Stack;
 
 public class MenuGroup extends Menu {
 
   //모든 메뉴가 공유할 객체이기 때문에 스태틱으로 선언
-  static Stack breadCrumb = new Stack();
+  static Stack<Menu> breadCrumb = new Stack<>();
 
   Menu[] childs = new Menu[100];
   int size;
@@ -103,7 +103,7 @@ public class MenuGroup extends Menu {
         path += " / ";
       }
 
-      Menu menu = (Menu) breadCrumb.get(i);
+      Menu menu = breadCrumb.get(i);
       path += menu.title;
     }
 
