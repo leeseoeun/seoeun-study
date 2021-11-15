@@ -59,6 +59,12 @@ public class App {
         authHandler.displayLoginUser();
       }
     });
+    mainMenuGroup.add(new Menu("로그아웃") {
+      @Override
+      public void execute() {
+        authHandler.logout();
+      }
+    });
 
     MenuGroup boardMenu = new MenuGroup("게시판");
     mainMenuGroup.add(boardMenu);

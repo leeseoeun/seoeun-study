@@ -56,5 +56,12 @@ public class AuthHandler {
     System.out.printf("등록일: %s\n", loginUser.getRegisteredDate());
   }
 
+  public void logout() {
+    System.out.println("[로그아웃]");
+
+    loginUser = null;
+    System.out.println("로그아웃하였습니다");
+  }
+
 
 }
